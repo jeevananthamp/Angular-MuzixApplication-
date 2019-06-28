@@ -1,0 +1,141 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <a class="navbar-brand" href="#">
+    <img
+      src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn3.macworld.co.uk%2Fcmsdata%2Ffeatures%2F3612963%2Fhow_to_get_music_on_iphone_1600home_thumb800.jpg&imgrefurl=https%3A%2F%2Ftoysallworld.hatenablog.com%2Fentry%2F2019%2F04%2F01%2F061502&docid=H980-wkjcflS_M&tbnid=6T-y_-TKG92l1M%3A&vet=10ahUKEwi7gIXFoejiAhXFh3AKHdgHCd0QMwgrKAAwAA..i&w=800&h=450&bih=669&biw=1299&q=music&ved=0ahUKEwi7gIXFoejiAhXFh3AKHdgHCd0QMwgrKAAwAA&iact=mrc&uact=8"
+      width="30"
+      height="30"
+      class="d-inline-block align-top"
+      alt=""
+    />
+    Muzix
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div
+    class="collapse navbar-collapse"
+    id="navbarSupportedContent"
+    [ngbCollapse]="!isCollapsed"
+  >
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="wishlist">WishList</a>
+      </li>
+      <li ngbDropdown class="nav-item dropdown">
+        <a
+          ngbDropdownToggle
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Country
+        </a>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu"
+          aria-labelledby="navbarDropdown"
+        >
+          <button
+            ngbDropdownItem
+            class="dropdown-item"
+            href="#"
+            (click)="getIndiaTracks()"
+          >
+            India
+          </button>
+          <button
+            ngbDropdownItem
+            class="dropdown-item"
+            href="#"
+            (click)="getSpainTracks()"
+          >
+            Spain
+          </button>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+</nav>
+<body>
+  <div class="flex-container">
+    <div *ngFor="let item of wishlist">
+      <div class="d-flex align-content-center flex-wrap">
+        <div
+          class="card text-white bg-dark mb-2 mh-2"
+          style="width: 15rem; height: 26rem"
+        >
+          <div class="card-header .align-items-center p-4 ">
+            <h6 class="card-title text-center font-weight-bolder ">
+              {{ item.trackname }}
+            </h6>
+            <h6 class="text-center font-weight-lighter ">
+              {{ item.trackcomments }}
+            </h6>
+          </div>
+          <div class="card-body m-4 p-2 text-center">
+            <img
+              src="https://lastfm-img2.akamaized.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
+              style="max-width: 10rem; max-height: 10rem"
+              class="card-img-top rounded"
+              alt="..."
+            />
+            <div class="card-text p-2">
+              <a (click)="removeWish(item.trackid)">
+                <img
+                  src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png"
+                  alt=""
+                  style="width:32px;height:32px;border:0"
+                />
+              </a>
+              <a href="{{ item.tracklisteners }}">
+                <img
+                  class="p-2"
+                  src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c4f9.png"
+                  alt=""
+                  style="width:42px;height:42px;border:0"
+                />
+              </a>
+              <!-- <button
+                type="button"
+                class="btn btn-outline-default btn-rounded waves-effect"
+              >
+                <i class="fas fa-pen-square"></i> -->
+              <img
+                class="p-2"
+                src="https://www.pngrepo.com/png/36160/170/edit-button.png"
+                alt=" "
+                style="width:42px;height:42px;border:0"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

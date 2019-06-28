@@ -1,0 +1,16 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  /* align-self: auto; */
+  /* align-items: center; */
+
+  padding-top: 2em;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+body {
+  background-color: black;
+}
+.fa-pen-square {
+  color: red;
+}
